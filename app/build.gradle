@@ -27,6 +27,12 @@ android {
             manifestPlaceholders = [hostName: "a.com"]
             debuggable true
         }
+
+        staging {
+            initWith debug
+            manifestPlaceholders = [hostName:"b.com"]
+            applicationIdSuffix ".debugStaging"
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
