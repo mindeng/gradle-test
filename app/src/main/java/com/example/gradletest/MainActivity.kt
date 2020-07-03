@@ -1,6 +1,9 @@
 package com.example.gradletest
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +20,21 @@ class MainActivity : AppCompatActivity() {
     findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
         .setAction("Action", null).show()
+
+      Intent().apply {
+        action = Intent.ACTION_VIEW
+        data = Uri.parse("test://a.com/page2")
+      }.also {
+        startActivity(it)
+      }
     }
+
+    Log.i("MainActivity", "onCreate: $intent")
+  }
+
+  override fun onNewIntent(intent: Intent?) {
+    super.onNewIntent(intent)
+    Log.i("MainActivity", "onNewIntent: $intent")
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
