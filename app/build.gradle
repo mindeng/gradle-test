@@ -39,18 +39,22 @@ android {
     productFlavors {
         mini {
             dimension "feature"
+            versionNameSuffix "-mini"
         }
 
         full {
             dimension "feature"
+            versionNameSuffix "-full"
         }
 
         cn {
             dimension "region"
+            versionNameSuffix "-cn"
         }
 
         us {
             dimension "region"
+            versionNameSuffix "-us"
         }
     }
 

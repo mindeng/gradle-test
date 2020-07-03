@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_first.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -26,6 +27,14 @@ class FirstFragment : Fragment() {
 
     view.findViewById<Button>(R.id.button_first).setOnClickListener {
       findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    }
+
+    context?.let {
+      it.packageManager.getPackageInfo(it.packageName, 0).also { packageInfo ->
+        packageInfo.versionName.also { versionName ->
+          textview_first.text = versionName
+        }
+      }
     }
   }
 }
