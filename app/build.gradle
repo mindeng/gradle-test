@@ -23,6 +23,7 @@ android {
         }
 
         debug {
+            applicationIdSuffix ".debug"
             manifestPlaceholders = [hostName: "a.com"]
             debuggable true
         }
