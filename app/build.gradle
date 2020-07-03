@@ -34,7 +34,27 @@ android {
             applicationIdSuffix ".debugStaging"
         }
     }
-    compileOptions {
+
+    flavorDimensions "region", "feature"
+    productFlavors {
+        mini {
+            dimension "feature"
+        }
+
+        full {
+            dimension "feature"
+        }
+
+        cn {
+            dimension "region"
+        }
+
+        us {
+            dimension "region"
+        }
+    }
+
+        compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
